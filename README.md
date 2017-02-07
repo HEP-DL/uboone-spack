@@ -33,3 +33,12 @@ case "$0" in
 esac
 module() { eval `$(find <path to spack> -name modulecmd) $modules_shell $*`; }
 ~~~
+
+
+> WARNING: Watch out for errors of the form:
+> ~~~
+>curl: (56) Recv failure: Connection reset by peer
+==> Fetching from http://ftp.gnu.org/gnu/gcc/gcc-4.9.3/gcc-4.9.3.tar.bz2 failed.
+==> Error: FetchError: All fetchers failed for gcc-4.9.3-v5qnhblyippvancig6ax7trapncbmdj2
+> ~~~
+> The network timeout for spack is set to a hair trigger. Just re-run the install commands, and it should work.
