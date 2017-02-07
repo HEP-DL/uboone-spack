@@ -20,8 +20,8 @@ source spack/share/spack/setup-env.sh
 
 
 ~~~ bash
-$ spack info root
-$ spack install root
+spack install gcc@4.9.3
+spack install root@6.06.08%gcc@4.9.3
 ~~~
 
 ~~~ bash
