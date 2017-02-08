@@ -97,3 +97,11 @@ Similarly, this can be loaded with the `spack load` command.
 ~~~ bash
 spack install larlite%gcc@4.9.4
 ~~~
+
+> NOTE: Issue with permetis, a.k.a the "metis bomb". One
+> One of the dependencies a package called metis is hosted by a site with a bad track record for uptime.
+> Fortunately, there are mirrors for this kind of occasion.
+> Download metis from the following location: http://pkgs.fedoraproject.org/repo/pkgs/metis/metis-5.1.0.tar.gz/md5/5465e67079419a69e0116de24fce58fe/metis-5.1.0.tar.gz
+> Then, move this to the "spack" approved directory structure with `mkdir Downloads/metis; mv Downloads/metis-5.1.0.tar.gz Downloads/metis`.
+> Finally, add the download location as a mirror with `spack mirror add metis ~/Downloads`
+> Obviously, `Downloads` can be replaced with a better location, but for these purposes, this works.
