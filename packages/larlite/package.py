@@ -38,26 +38,41 @@
 # please first remove this boilerplate and all FIXME comments.
 #
 from spack import *
+import subprocess
+import shutil
 import os
 
+
 class Larlite(Package):
-  """
-    Light-weight LArSoft analysis framework.
-  """
-
   homepage = "https://github.com/larlight/larlite"
-  url      = "https://github.com/larlight/larlite/archive/trunk.zip"
+  url      = "https://github.com/larlight/larlite/archive/v06_20_00.tar.gz"
 
-  version('0_1_0_int', '86b5158831e5f762c01581af2b913a99')
-  depends_on('root@4.9.3%gcc@4.9.3')
-
+  version('06_20_00', 'd5a5788e01cddf57d0b197188ab14847')
+  depends_on('llvm@3.9.1')
+  depends_on('root@6.06.08%llvm@3.9.1')
+  
   def setup_environment(self, spack_env, run_env):
-      print "HEY KEVIN. In Setup. Remove these statements."
-      print spack_env
-      print run_env
+    with working_dir(self.prefix):
+        command = ['bash', '-c', 'source config/setup.sh']
+        proc = subprocess.Popen(command)
+
+  def setup_dependent_environment(self, spack_env, run_env, dspec):
+    with working_dir(self.prefix):
+        command = ['bash', '-c', 'source config/setup.sh']
+        proc = subprocess.Popen(command)
 
   def install(self, spec, prefix):
-    print "Hey Kevin. In Install. Remove these statements."
-    print spec
-    print prefix
-    make()
+    mkdirp(prefix)
+    src_dir = os.getcwd()
+    files_to_move =os.listdir(src_dir)
+    for _file in files_to_move:
+      if os.path.isdir(_file):
+        shutil.copytree(os.path.join(src_dir,_file), os.path.join(prefix, _file))
+      else:
+        shutil.copy(os.path.join(src_dir,_file), os.path.join(prefix, _file))
+    #os.chdir(prefix)
+    with working_dir(prefix):
+        command = ['bash', '-c', 'source config/setup.sh']
+        proc = subprocess.Popen(command)
+        make()
+    #os.chdir(src_dir)
