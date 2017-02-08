@@ -25,13 +25,24 @@
 from spack import *
 
 
-class Larlite(CMakePackage):
-    homepage = "https://github.com/HEP-DL/larlite/"
-    url      = "https://github.com/HEP-DL/larlite/archive/pnnl1.1.4.tar.gz"
+class Snappy(AutotoolsPackage):
+    """FIXME: Put a proper description of your package here."""
 
-    version('pnnl1.1.4', 'd260e7b45c6c2ccb20658e039374e34d')
-    depends_on('root')
+    # FIXME: Add a proper url for your package's homepage here.
+    homepage = "http://www.example.com"
+    url      = "https://github.com/google/snappy/archive/1.1.4.tar.gz"
 
-    def cmake_args(self):
+    version('1.1.4', '2c2e6a8c31df767dc7cc45617f5ae0b1')
+    version('1.1.3', '7358c82f133dc77798e4c2062a749b73')
+
+    depends_on('m4')
+    depends_on('autoconf')
+    depends_on('automake')
+    depends_on('libtool')
+    depends_on('pkg-config')
+
+    def configure_args(self):
+        # FIXME: Add arguments other than --prefix
+        # FIXME: If not needed delete this function
         args = []
         return args

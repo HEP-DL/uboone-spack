@@ -22,15 +22,33 @@
 # License along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
+#
+# This is a template package file for Spack.  We've put "FIXME"
+# next to all the things you'll want to change. Once you've handled
+# them, you can save this file and test your package like this:
+#
+#     spack install larcv
+#
+# You can edit this file again by typing:
+#
+#     spack edit larcv
+#
+# See the Spack documentation for more information on packaging.
+# If you submit this package back to Spack as a pull request,
+# please first remove this boilerplate and all FIXME comments.
+#
 from spack import *
 
 
-class Larlite(CMakePackage):
-    homepage = "https://github.com/HEP-DL/larlite/"
-    url      = "https://github.com/HEP-DL/larlite/archive/pnnl1.1.4.tar.gz"
+class Larcv(CMakePackage):
+    """FIXME: Put a proper description of your package here."""
 
-    version('pnnl1.1.4', 'd260e7b45c6c2ccb20658e039374e34d')
-    depends_on('root')
+    # FIXME: Add a proper url for your package's homepage here.
+    homepage = "http://www.example.com"
+    url      = "https://github.com/HEP-DL/LArCV/archive/pnnl1.0.0.tar.gz"
+
+    version('pnnl1.0.0', 'cf89c12218d1ce64c3061ff03becf111')
+    depends_on('larlite')
 
     def cmake_args(self):
         args = []
