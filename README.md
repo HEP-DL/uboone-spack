@@ -91,7 +91,7 @@ spack install root@6.06.08%llvm@3.9.1
 Similarly, this can be loaded with the `spack load` command.
 
 
-### Starting up LArLite
+### Setting up LArLite
 
 
 ~~~ bash
@@ -105,3 +105,10 @@ spack install larlite%gcc@4.9.4
 > Then, move this to the "spack" approved directory structure with `mkdir Downloads/metis; mv Downloads/metis-5.1.0.tar.gz Downloads/metis`.
 > Finally, add the download location as a mirror with `spack mirror add metis ~/Downloads`
 > Obviously, `Downloads` can be replaced with a better location, but for these purposes, this works.
+
+
+### Setting up caffe
+
+~~~ bash
+spack install caffe%gcc@4.9.4 ^opencv@3.2.0 +shared +python
+~~~
