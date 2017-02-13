@@ -95,7 +95,7 @@ Similarly, this can be loaded with the `spack load` command.
 
 
 ~~~ bash
-spack install larlite%gcc@4.9.4
+spack install larlite%gcc@4.7.4
 ~~~
 
 > NOTE: Issue with permetis, a.k.a the "metis bomb". One
@@ -110,5 +110,5 @@ spack install larlite%gcc@4.9.4
 ### Setting up caffe
 
 ~~~ bash
-spack install caffe%gcc@4.9.4 ^opencv@3.2.0 +shared +python
+spack install caffe%gcc@4.7.4 ^opencv@3.2.0 +shared +python
 ~~~
