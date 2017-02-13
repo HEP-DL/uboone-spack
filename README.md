@@ -1,5 +1,5 @@
 # uboone-spack
-Microboone Spack Repo Overlay
+Microboone Deep Learning Spack Repo Overlay
 
 > NOTE: Work in progress. 
 
