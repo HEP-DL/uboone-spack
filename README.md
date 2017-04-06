@@ -17,19 +17,18 @@ First, locate a directory that can hold ~5 GB. The following series of commands 
 cd /path/to/big/dir
 git clone https://github.com/LLNL/spack.git
 cd spack
-export PATH=$PATH:$(pwd)/bin
 source share/spack/setup-env.sh
-cd spack/var/spack/repos
+cd var/spack/repos
 git clone https://github.com/HEP-SF/hep-spack.git
-git clone https://github/com/HEP-DL/uboone-spack.git
-spack repo add spack/var/spack/repos/hep-spack
+git clone https://github.com/HEP-DL/uboone-spack.git
+cd ../../..
+spack repo add var/spack/repos/hep-spack
+spack repo add var/spack/repos/uboone-spack
 ~~~
 
-Whenever starting from a fresh terminal, the following commands should be run:
-
+Whenever starting from a fresh terminal, the following command should be run:
 
 ~~~ bash
-export PATH=$PATH:<path to spack>/bin
 source <path to spack>/share/spack/setup-env.sh
 ~~~
 
